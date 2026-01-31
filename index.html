@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حكايتنا ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+   <section id="start-page">
+    <div class="login-card">
+        <div class="avatar">❤️</div>
+        <h2>مؤمن & شهوده</h2>
+        <p>ادخلي تاريخ ميلادك عشان تشوفي المفاجأة</p>
+        
+        <div class="input-group">
+            <input type="password" id="passwordInput" placeholder="DD-MM-YYYY" maxlength="10">
+            <i class="fas fa-lock"></i>
+        </div>
+        
+        <button onclick="checkPassword()">دخول ✨</button>
+        <p id="error-msg" class="error hidden">التاريخ غلط.. حاولي تاني يا روحي ❌</p>
+    </div>
+</section>
+
+
+    <section id="main-content" class="hidden">
+        <h2>حكايتنا ❤️</h2>
+        <p class="sub-text">كل لحظة معاكي هي عمر جديد</p>
+
+        <div id="timer">
+            <div class="time-box"><span id="years">0</span><p>سنة</p></div>
+            <div class="time-box"><span id="months">0</span><p>شهر</p></div>
+            <div class="time-box"><span id="days">0</span><p>يوم</p></div>
+            <div class="time-box"><span id="hours">0</span><p>ساعة</p></div>
+            <div class="time-box"><span id="minutes">0</span><p>دقيقة</p></div>
+            <div class="time-box"><span id="seconds">0</span><p>ثانية</p></div>
+        </div>
+
+        <div class="music-control">
+            <div class="song-info">
+                <p>نور عيني</p>
+                <span>الأغنية اللي بتوصفنا 🎵</span>
+            </div>
+            <button id="music-btn" onclick="toggleMusic()"><i class="fas fa-pause"></i></button>
+        </div>
+
+        <div class="status-messages">
+            <div class="msg-card"><i class="fas fa-hand-holding-heart"></i> هفضل سندك في كل وقت</div>
+            <div class="msg-card"><i class="fas fa-shield-alt"></i> هكون دايماً أمانك وضحكتك</div>
+            <div class="msg-card"><i class="fas fa-infinity"></i> حبنا ملوش نهاية.. وعد</div>
+        </div>
+
+        <div class="icon-grid">
+            <div class="icon-box" onclick="showPopup('إنتي أجمل نعمة في حياتي ❤️')"><i class="fas fa-star"></i></div>
+            <div class="icon-box" onclick="showPopup('وجودك بيخلي الدنيا منورة ✨')"><i class="fas fa-envelope"></i></div>
+            <div class="icon-box" onclick="showPopup('ملكة قلبي للأبد 💍')"><i class="fas fa-crown"></i></div>
+        </div>
+
+        <div class="photos">
+            <img src="1.jpg" class="love-img">
+            <p>أحلى صدفة في عمري ❤️</p>
+            <img src="2.jpg" class="love-img">
+            <p>ضحكتك هي حياتي ✨</p>
+        </div>
+
+        <div class="gift-section" onclick="openFinalLetter()">
+            <div class="gift-box">
+                <i class="fas fa-gift"></i>
+                <p>في حاجة أخيرة ليكي.. 🎁</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="final-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <span class="close-btn" onclick="closeFinalLetter()">&times;</span>
+            <h3>ملكة قلبي.. ❤️</h3>
+            <div class="scroll-text">
+                <p>حبيبتي "حبيبة".. عايز أقولك إن كل كلمة كتبتها هنا وكل صورة حطيتها هي جزء صغير من اللي حاسه بيكي. إنتي مش بس حبيبتي، إنتي بنتي وصاحبتي وأماني. هفضل دايماً جنبك، وهيفضل حبنا بيكبر كل يوم عن اللي قبله. ربنا يخليكي ليا يا أغلى من عمري.</p>
+                <p class="signature">بحبك يا حبيبة.. للأبد ❤️</p>
+            </div>
+            <button class="back-btn" onclick="closeFinalLetter()">العودة للبداية</button>
+        </div>
+    </div>
+
+    <div id="popup" class="popup hidden" onclick="closePopup()">
+        <div class="popup-content">
+            <p id="popup-text"></p>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop src="music.mp3"></audio>
+    <div id="hearts-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
