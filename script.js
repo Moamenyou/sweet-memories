@@ -24,7 +24,7 @@ function createHeart() {
 }
 
 // العداد (تأكد من تعديل التاريخ هنا)
-const startDate = new Date(2021, 0, 1); // سنة، شهر (0=يناير)، يوم
+const startDate = new Date(2025, 8, 11); // سنة، شهر (0=يناير)، يوم
 
 setInterval(() => {
     const now = new Date();
@@ -76,7 +76,7 @@ function checkPassword() {
     const errorMsg = document.getElementById('error-msg');
     
     // حط هنا تاريخ ميلادها (مثلاً لو 15-05-2002)
-    const correctPass = "15052002"; 
+    const correctPass = "11/7/2008"; 
     
     // شيل الفواصل لو دخلتها (عشان لو كتبت 15-05-2002 يقرأها 15052002)
     const cleanPass = passInput.replace(/-/g, "");
@@ -101,3 +101,97 @@ function checkPassword() {
     75% { transform: translateX(10px); }
 }
 */
+document.addEventListener('mousemove', (e) => {
+    document.body.style.setProperty('--x', e.clientX + 'px');
+    document.body.style.setProperty('--y', e.clientY + 'px');
+});
+
+document.addEventListener('touchmove', (e) => {
+    document.body.style.setProperty('--x', e.touches[0].clientX + 'px');
+    document.body.style.setProperty('--y', e.touches[0].clientY + 'px');
+});
+function createSparkles() {
+    const container = document.body;
+    setInterval(() => {
+        const sparkle = document.createElement('div');
+        sparkle.style.position = 'fixed';
+        sparkle.style.width = '2px';
+        sparkle.style.height = '2px';
+        sparkle.style.background = 'white';
+        sparkle.style.borderRadius = '50%';
+        sparkle.style.top = Math.random() * 100 + 'vh';
+        sparkle.style.left = Math.random() * 100 + 'vw';
+        sparkle.style.boxShadow = '0 0 10px white';
+        sparkle.style.opacity = '0';
+        sparkle.style.zIndex = '-1';
+        
+        container.appendChild(sparkle);
+
+        // أنيميشن البريق
+        sparkle.animate([
+            { opacity: 0, transform: 'scale(0)' },
+            { opacity: 1, transform: 'scale(1.5)' },
+            { opacity: 0, transform: 'scale(0)' }
+        ], { duration: 2000 });
+
+        setTimeout(() => sparkle.remove(), 2000);
+    }, 100);
+}
+createSparkles();
+// تأثير الضوء المتوهج يتبع الماوس/اللمس (يجب أن يكون في script.js)
+document.addEventListener('mousemove', (e) => {
+    document.body.style.setProperty('--x', e.clientX + 'px');
+    document.body.style.setProperty('--y', e.clientY + 'px');
+});
+
+document.addEventListener('touchmove', (e) => {
+    document.body.style.setProperty('--x', e.touches[0].clientX + 'px');
+    document.body.style.setProperty('--y', e.touches[0].clientY + 'px');
+});
+
+
+// توليد القلوب المتطايرة
+function createFlyingHearts() {
+    const heartSymbols = ['❤️', '💖', '✨']; // ممكن تضيف رموز تانية لو حبيت
+    setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'flying-particle';
+        heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+        
+        heart.style.left = Math.random() * 100 + 'vw'; // مكان عشوائي أفقي
+        heart.style.top = '100vh'; // يبدأ من أسفل الشاشة
+        heart.style.fontSize = (Math.random() * 20 + 10) + 'px'; // حجم عشوائي
+        
+        const duration = Math.random() * 4 + 2; // سرعة طيران عشوائية
+        heart.animate([
+            { transform: 'translateY(0) rotate(0deg)', opacity: 0, scale: 0.5 },
+            { transform: `translateY(-120vh) rotate(${Math.random() * 360}deg)`, opacity: 0.8, scale: 1.2 }
+        ], { duration: duration * 1000, easing: 'ease-out' });
+
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), duration * 1000); // إزالة القلب بعد الانيميشن
+    }, 300); // توليد قلب كل 300 مللي ثانية
+}
+
+// توليد النجوم المتلألئة
+function createSparkleStars() {
+    setInterval(() => {
+        const star = document.createElement('div');
+        star.className = 'sparkle-star';
+        const size = Math.random() * 3 + 1; // حجم عشوائي للنجوم
+        star.style.width = size + 'px';
+        star.style.height = size + 'px';
+        star.style.top = Math.random() * 100 + 'vh'; // مكان عشوائي رأسي
+        star.style.left = Math.random() * 100 + 'vw'; // مكان عشوائي أفقي
+        
+        document.body.appendChild(star);
+        setTimeout(() => star.remove(), 2000); // إزالة النجمة بعد التلألؤ
+    }, 150); // توليد نجمة كل 150 مللي ثانية
+}
+
+// تشغيل التأثيرات عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', () => {
+    createFlyingHearts();
+    createSparkleStars();
+});
+                
