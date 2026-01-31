@@ -305,3 +305,149 @@ button {
     font-size: 13px;
     margin-top: 15px;
 }
+body {
+    background: radial-gradient(circle at center, #1a0a0d 0%, #000000 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* تأثير الإضاءة المتحركة في الخلفية */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(800px circle at var(--x, 50%) var(--y, 50%), rgba(255, 77, 109, 0.05), transparent 40%);
+    z-index: -1;
+}
+@keyframes moveHearts {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg) scale(0.5);
+        opacity: 0;
+    }
+    20% { opacity: 0.8; }
+    100% {
+        transform: translateY(-10vh) translateX(100px) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+.heart {
+    filter: drop-shadow(0 0 5px #ff4d6d); /* خليهم بينوروا */
+}
+.time-box, .msg-card, .icon-box, .music-control {
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(10px); /* ده اللي بيعمل تأثير الزجاج */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.time-box:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: #ff4d6d !important;
+    box-shadow: 0 0 20px rgba(255, 77, 109, 0.2);
+}
+.love-img {
+    transition: transform 0.8s ease;
+    filter: grayscale(30%); /* خليها أبيض وأسود شوية */
+}
+
+.love-img:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%); /* تلون لما تلمسها */
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    /* خلفية مجرة متحركة */
+    background: linear-gradient(125deg, #000000, #1a0a2e, #2e0a1a, #000000);
+    background-size: 400% 400%;
+    animation: nebulaAnimation 15s ease infinite;
+    overflow-x: hidden;
+}
+
+@keyframes nebulaAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* إضافة تأثير "الضباب المنير" */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 77, 109, 0.1), transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+.login-card, .time-box, .msg-card {
+    background: rgba(0, 0, 0, 0.6) !important; /* سواد شفاف */
+    border: 1px solid #ff4d6d !important;
+    box-shadow: 0 0 15px rgba(255, 77, 109, 0.4), inset 0 0 10px rgba(255, 77, 109, 0.2) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+h1, h2, .avatar {
+    text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff4d6d;
+    letter-spacing: 2px;
+}
+/* الخلفية الأساسية للموقع - سديم متحرك */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(125deg, #020010, #160125, #350119, #020010); /* ألوان السديم */
+    background-size: 400% 400%; /* حجم كبير ليسمح بالحركة */
+    animation: nebulaAnimation 15s ease infinite; /* أنيميشن الحركة */
+    color: white; /* لون الخطوط الأساسي */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden; /* لمنع ظهور شريط التمرير الأفقي */
+}
+
+/* حركة تدرج الألوان في الخلفية */
+@keyframes nebulaAnimation {
+    0% { background-position: 0% 50%; } /* بداية الحركة */
+    50% { background-position: 100% 50%; } /* منتصف الحركة */
+    100% { background-position: 0% 50%; } /* نهاية الحركة (ترجع للبداية) */
+}
+
+/* تأثير "الضوء المتوهج" يتبع الماوس (اختياري لكن احترافي) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(800px circle at var(--x, 50%) var(--y, 50%), rgba(255, 77, 109, 0.08), transparent 40%);
+    pointer-events: none; /* عشان الضوء مياثرش على التفاعل مع العناصر */
+    z-index: -1; /* عشان يكون ورا كل العناصر */
+}
+/* تنسيق القلوب اللي بتطير */
+.flying-particle {
+    position: fixed;
+    pointer-events: none; /* عشان متتفاعلش مع الماوس */
+    z-index: 1; /* عشان تظهر فوق الخلفية */
+    user-select: none; /* عشان محدش يقدر يعلم عليها */
+    color: #ff4d6d; /* لون القلوب */
+    text-shadow: 0 0 5px rgba(255, 77, 109, 0.7); /* ظل خفيف للقلوب */
+}
+
+/* تنسيق النجوم المتلألئة */
+.sparkle-star {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1;
+    background: white;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 8px white;
+    animation: twinkle 2s infinite ease-in-out; /* أنيميشن التلألؤ */
+}
+
+/* أنيميشن التلألؤ للنجوم */
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
